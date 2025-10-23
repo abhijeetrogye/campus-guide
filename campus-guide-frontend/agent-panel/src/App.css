@@ -1,0 +1,62 @@
+/* src/App.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom animations as utility classes */
+@layer utilities {
+  .animate-slideIn {
+    animation: slideIn 0.4s ease-out forwards;
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+}
+
+/* Define global base styles, like for the scrollbar */
+@layer base {
+  /* Custom scrollbar for LIGHT mode */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.2);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.4);
+  }
+
+  /* Custom scrollbar for DARK mode (when the 'dark' class is present) */
+  .dark ::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.3);
+  }
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.5);
+  }
+}
+
+/* Keyframe definitions */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
